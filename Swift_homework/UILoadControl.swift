@@ -27,7 +27,7 @@ class UILoadControl: UIView {
     private func initParams() {
         let rect = CGRect(x: 0, y: 0, width: 300, height: 300)
         let circle = UIView(frame: rect)
-        circle.backgroundColor = UIColor.blue
+        circle.backgroundColor = UIColor.red
         circle.layer.cornerRadius = (rect.width)/2
         contentView.addSubview(circle)
     }
