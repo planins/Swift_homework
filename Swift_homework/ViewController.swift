@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
+        //let myView = UILoadControl(frame: rect)
+        //self.view.addSubview(myView)
     }
 
     override func didReceiveMemoryWarning() {

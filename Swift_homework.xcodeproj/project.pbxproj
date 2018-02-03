@@ -14,6 +14,8 @@
 		F662032F20265FF0003AE460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F662032D20265FF0003AE460 /* LaunchScreen.storyboard */; };
 		F662033A20265FF0003AE460 /* Swift_homeworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662033920265FF0003AE460 /* Swift_homeworkTests.swift */; };
 		F662034520265FF0003AE460 /* Swift_homeworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F662034420265FF0003AE460 /* Swift_homeworkUITests.swift */; };
+		F66203532026601F003AE460 /* UILoadControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66203522026601F003AE460 /* UILoadControl.swift */; };
+		F6620357202668D7003AE460 /* UILoadControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6620356202668D7003AE460 /* UILoadControl.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F662034020265FF0003AE460 /* Swift_homeworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Swift_homeworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F662034420265FF0003AE460 /* Swift_homeworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_homeworkUITests.swift; sourceTree = "<group>"; };
 		F662034620265FF0003AE460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66203522026601F003AE460 /* UILoadControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadControl.swift; sourceTree = "<group>"; };
+		F6620356202668D7003AE460 /* UILoadControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UILoadControl.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				F662032B20265FF0003AE460 /* Assets.xcassets */,
 				F662032D20265FF0003AE460 /* LaunchScreen.storyboard */,
 				F662033020265FF0003AE460 /* Info.plist */,
+				F66203522026601F003AE460 /* UILoadControl.swift */,
+				F6620356202668D7003AE460 /* UILoadControl.xib */,
 			);
 			path = Swift_homework;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F662032F20265FF0003AE460 /* LaunchScreen.storyboard in Resources */,
+				F6620357202668D7003AE460 /* UILoadControl.xib in Resources */,
 				F662032C20265FF0003AE460 /* Assets.xcassets in Resources */,
 				F662032A20265FF0003AE460 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66203532026601F003AE460 /* UILoadControl.swift in Sources */,
 				F662032720265FF0003AE460 /* ViewController.swift in Sources */,
 				F662032520265FF0003AE460 /* AppDelegate.swift in Sources */,
 			);
