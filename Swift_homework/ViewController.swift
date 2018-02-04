@@ -27,11 +27,7 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.black
         
-        let timer = Timer.scheduledTimer(timeInterval: 0.1,
-                                             target: self,
-                                             selector: #selector(self.updatePercentage),
-                                             userInfo: nil,
-                                             repeats: true)
+        let timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.updatePercentage), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {

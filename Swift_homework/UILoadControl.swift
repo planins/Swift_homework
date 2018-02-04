@@ -31,6 +31,12 @@ class UILoadControl: UIView {
         drawCircle()
         drawArc()
         drawArrow(percentage: percentageEntered)
+        drawLabel(text: "0", x: 102, y: 235)
+        drawLabel(text: "20", x: 60, y: 147)
+        drawLabel(text: "40", x: 105, y: 70)
+        drawLabel(text: "60", x: 195, y: 70)
+        drawLabel(text: "80", x: 242, y: 147)
+        drawLabel(text: "100", x: 195, y: 230)
     }
     
     func setPercentage(percentageEntered: Double) {
@@ -112,7 +118,6 @@ class UILoadControl: UIView {
     
     private func drawArrow(percentage: Double) {
         
-        
         let wholeBarLength = oneSixthCricle*5
         let onePercentFromBar = wholeBarLength/100
         let moveArrowBy = percentage*onePercentFromBar + oneSixthCricle/11
@@ -128,5 +133,16 @@ class UILoadControl: UIView {
     
     private func removeArrow() {
         arrowLayer.removeFromSuperlayer()
+    }
+    
+    private func drawLabel(text: String, x: Double, y: Double) {
+        let label = UILabel(frame: CGRect(x: x, y: y, width: 50, height: 50))
+        
+        label.center = CGPoint(x: x, y: y)
+        label.textAlignment = .center
+        label.textColor = UIColor.darkGray
+        label.text = "\(text)"
+        
+        contentView.addSubview(label)
     }
 }
