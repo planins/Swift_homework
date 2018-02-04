@@ -10,24 +10,33 @@ import UIKit
 
 class UILoadControl: UIView {
     
-    let oneSixthCricle = 1.047197551196598
+    let oneSixthCricle = (2*Double.pi) / 6
+    var percentage: Double = 0
+    var arrowLayer: CAShapeLayer = CAShapeLayer()
     
     @IBOutlet var contentView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initParams()
+        initParams(percentageEntered: self.percentage)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initParams()
+        initParams(percentageEntered: self.percentage)
     }
     
-    private func initParams() {
+    private func initParams(percentageEntered: Double) {
         loadXib()
         drawCircle()
         drawArc()
+        drawArrow(percentage: percentageEntered)
+    }
+    
+    func setPercentage(percentageEntered: Double) {
+        self.percentage = percentageEntered
+        removeArrow()
+        drawArrow(percentage: percentageEntered)
     }
     
     private func drawCircle() {
@@ -76,5 +85,48 @@ class UILoadControl: UIView {
         drawArcSegment(startAngle: 4*oneSixthCricle, endAngle: 5*oneSixthCricle, colour: UIColor(red: 89/255, green: 139/255, blue: 152/255, alpha: 1.0))
         
         drawArcSegment(startAngle: 5*oneSixthCricle, endAngle: 6*oneSixthCricle, colour: UIColor(red: 186/255, green: 68/255, blue: 27/255, alpha: 1.0))
+    }
+    
+    private func createArrowPath(startAngle: Double, endAngle: Double) -> UIBezierPath {
+        let path = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: 20, startAngle: CGFloat(startAngle), endAngle: CGFloat(endAngle), clockwise: true)
+        
+        let start = path.currentPoint
+        path.close()
+        let end = path.currentPoint
+        
+        var vector = CGVector(dx: start.x - end.x, dy: start.y - end.y)
+        let dist = sqrt(vector.dx*vector.dx + vector.dy*vector.dy)
+        vector.dx /= dist
+        vector.dy /= dist
+        
+        let endPointX = start.x - 100*vector.dy
+        let endPointY = start.y + 100*vector.dx
+        let endPoint = CGPoint(x: endPointX, y: endPointY)
+        
+        path.move(to: CGPoint(x: start.x, y: start.y))
+        path.addLine(to: endPoint)
+        path.addLine(to: CGPoint(x: end.x, y: end.y))
+        
+        return path
+    }
+    
+    private func drawArrow(percentage: Double) {
+        
+        
+        let wholeBarLength = oneSixthCricle*5
+        let onePercentFromBar = wholeBarLength/100
+        let moveArrowBy = percentage*onePercentFromBar + oneSixthCricle/11
+        
+        arrowLayer.path = createArrowPath(startAngle: (2*oneSixthCricle + oneSixthCricle/2)+moveArrowBy, endAngle: (oneSixthCricle + oneSixthCricle/2)+moveArrowBy).cgPath
+        
+        arrowLayer.strokeColor = UIColor(red: 37/255, green: 174/255, blue: 236/255, alpha: 1.0).cgColor
+        arrowLayer.fillColor = UIColor(red: 37/255, green: 174/255, blue: 236/255, alpha: 1.0).cgColor
+        arrowLayer.position = contentView.center
+        
+        contentView.layer.addSublayer(arrowLayer)
+    }
+    
+    private func removeArrow() {
+        arrowLayer.removeFromSuperlayer()
     }
 }

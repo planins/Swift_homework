@@ -10,10 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var loadControl: UILoadControl!
+    
+    var percentage: Double = 0
+    
+    @objc func updatePercentage() {
+        if (percentage == 100) {
+            return
+        }
+        percentage += 1
+        loadControl.setPercentage(percentageEntered: percentage)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.black
+        
+        let timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                             target: self,
+                                             selector: #selector(self.updatePercentage),
+                                             userInfo: nil,
+                                             repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
