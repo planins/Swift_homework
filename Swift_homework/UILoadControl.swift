@@ -31,12 +31,7 @@ class UILoadControl: UIView {
         drawCircle()
         drawArc()
         drawArrow(percentage: percentageEntered)
-        drawLabel(text: "0", x: 102, y: 235)
-        drawLabel(text: "20", x: 60, y: 147)
-        drawLabel(text: "40", x: 105, y: 70)
-        drawLabel(text: "60", x: 195, y: 70)
-        drawLabel(text: "80", x: 242, y: 147)
-        drawLabel(text: "100", x: 195, y: 230)
+        drawLabels()
     }
     
     func setPercentage(percentageEntered: Double) {
@@ -144,5 +139,14 @@ class UILoadControl: UIView {
         label.text = "\(text)"
         
         contentView.addSubview(label)
+    }
+    
+    private func drawLabels() {
+        drawLabel(text: "0", x: 102, y: 235)
+        drawLabel(text: "20", x: 60, y: 147)
+        drawLabel(text: "40", x: 105, y: 70)
+        drawLabel(text: "60", x: 195, y: 70)
+        drawLabel(text: "80", x: 242, y: 147)
+        drawLabel(text: "100", x: 195, y: 230)
     }
 }
